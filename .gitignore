@@ -1,0 +1,14 @@
+# Datos personales: nunca se suben (principio de privacidad)
+data/raw/**
+!data/raw/LEEME.md
+data/procesado/
+data/manifest.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+.venv/
+data/etiquetas/

@@ -1,0 +1,56 @@
+# Reglas de categorización (línea base sin ML). Se evalúan en orden: gana la primera.
+# Cada regla puede combinar (todas deben cumplirse):
+#   descripcion:    expresión regular sobre la descripción de la línea (sin tildes, minúsculas)
+#   emisor_nombre:  expresión regular sobre la razón social del emisor
+#   emisor_nit:     lista de NIT
+#   ciiu:           lista de prefijos de actividad económica del emisor (CIIU Rev. 4)
+categorias:
+  - id: intereses
+    nombre: "Intereses y cargos financieros"
+    reglas:
+      - {descripcion: "\\binteres(es)?\\b|\\bmora\\b|cuota de manejo|comision bancaria"}
+      - {ciiu: ["641", "642", "649"]}
+  - id: salud
+    nombre: "Salud"
+    reglas:
+      - {descripcion: "copago|cuota moderadora|medicament|consulta medica|laboratorio clinico"}
+      - {ciiu: ["4773", "86"]}
+  - id: educacion
+    nombre: "Educación"
+    reglas:
+      - {ciiu: ["85"]}
+      - {emisor_nombre: "universidad|colegio|instituto"}
+  - id: telecomunicaciones
+    nombre: "Telecomunicaciones"
+    reglas:
+      - {ciiu: ["61"]}
+      - {emisor_nombre: "comcel|claro|movistar|telefonica|tigo|\\betb\\b|wom"}
+  - id: viajes
+    nombre: "Viajes"
+    reglas:
+      - {descripcion: "pasaje|tiquete|vuelo|hotel|hosped|reserva"}
+      - {ciiu: ["51", "5229", "55", "79"]}
+  - id: transporte
+    nombre: "Transporte"
+    reglas:
+      - {ciiu: ["4921", "4922"]}
+      - {emisor_nombre: "uber|didi|cabify|transmilenio|recaudo bogota"}
+  - id: tramites
+    nombre: "Trámites y notaría"
+    reglas:
+      - {descripcion: "registro|autentic|escritura|certificad|notari"}
+      - {ciiu: ["691", "8411"]}
+  - id: servicios_publicos
+    nombre: "Servicios públicos"
+    reglas:
+      - {ciiu: ["35", "36", "37", "38"]}
+      - {emisor_nombre: "enel|codensa|vanti|acueducto|gas natural"}
+  - id: mercado
+    nombre: "Mercado"
+    reglas:
+      - {ciiu: ["4711", "472"]}
+      - {emisor_nombre: "exito|carulla|jumbo|olimpica|\\bd1\\b|koba|jeronimo martins|\\bara\\b|colsubsidio|makro|alkosto"}
+  - id: restaurantes
+    nombre: "Restaurantes"
+    reglas:
+      - {ciiu: ["56"]}

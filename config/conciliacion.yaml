@@ -1,0 +1,30 @@
+# Tolerancias de conciliación. No son reglas legales: son decisiones del proyecto
+# (ver docs/decisiones.md, D3).
+facturas:
+  tolerancia_pesos: "2.00"        # los emisores redondean a centavos; la DIAN admite diferencias de este orden
+  exigir_validacion_dian: true
+extractos:
+  tolerancia_pesos: "1.00"        # saldo inicial + movimientos = saldo final
+pagos:                            # cruce movimiento bancario ↔ factura
+  tolerancia_pesos: "1.00"
+  dias_antes: 3                   # el cargo puede aparecer antes de la fecha de la factura
+  dias_despues: 10                # o después (pagos de servicios hasta el vencimiento)
+  puntaje_minimo: 0.5
+alertas_precio:
+  alza_minima: 0.10               # avisar si el precio unitario sube más del 10 %
+
+# Transferencias a cuentas propias en otros bancos: no son gasto, es plata que cambió de bolsillo.
+# Cada elemento es una expresión regular que se busca en la descripción del movimiento.
+# Ejemplo:  cuentas_propias: ["Transferencia NU", "Recarga Nequi", "Daviplata"]
+cuentas_propias: []
+
+# Plata propia detectada automáticamente: una salida de un producto propio que entra a otro
+# producto propio por el mismo valor no es gasto. Queda listada en transferencias_propias.csv.
+transferencias_propias:
+  activo: true
+  dias: 1               # diferencia máxima de fechas entre la salida y la entrada
+  valor_minimo: "1000"  # valores menores no se emparejan (evita coincidencias triviales)
+
+# Decisión del autor (11-nov-2026): la fase 2 (modelos) empieza con al menos 30 facturas únicas.
+fase2:
+  facturas_minimas: 30
