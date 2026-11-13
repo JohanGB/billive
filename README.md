@@ -2,7 +2,7 @@
 
 **Español** · [English](README.en.md)
 
-![pruebas](https://github.com/JohanGB/factura-viva/actions/workflows/pruebas.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB) ![Licencia](https://img.shields.io/badge/licencia-MIT-green)
+![pruebas](https://github.com/JohanGB/billive/actions/workflows/pruebas.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB) ![Licencia](https://img.shields.io/badge/licencia-MIT-green)
 
 Convierte las **facturas electrónicas de la DIAN** que llegan por correo y los **extractos
 bancarios** en respuestas concretas: en qué se fue la plata, cuánto salió de verdad de las
