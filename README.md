@@ -1,6 +1,6 @@
 # Factura Viva
 
-**Español** · [English](README.en.md)
+**Español** · [English](README.en.md) · [Ficha en el portafolio](https://johangb.github.io/proyectos/factura-viva.html)
 
 ![pruebas](https://github.com/JohanGB/billive/actions/workflows/pruebas.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB) ![Licencia](https://img.shields.io/badge/licencia-MIT-green)
 
@@ -93,7 +93,7 @@ config/               reglas y tolerancias (YAML)
 data/raw/             facturas y extractos tal como llegan (privado, inmutable)
 data/procesado/       tablas y tablero (privado, se regenera)
 src/factura_viva/     facturas/ · extractos/ · pagos · categorias · renta · alertas · tablero · pipeline · cli
-tests/                90 pruebas: casos resueltos, propiedades y aceptación con datos reales
+tests/                95 pruebas (93 pasan en la CI, 2 se omiten): casos resueltos, propiedades y aceptación con datos reales
 ejemplos/             demostración con datos sintéticos
 docs/                 decisiones · supuestos · uso de IA
 models/model_cards/   ficha de la línea base de categorización
@@ -101,6 +101,13 @@ models/model_cards/   ficha de la línea base de categorización
 
 Documentos: [decisiones](docs/decisiones.md) · [supuestos](docs/supuestos.md) ·
 [uso de IA](docs/uso_de_ia.md) · [ficha de categorización](models/model_cards/categorizacion_reglas.md)
+
+## Limitaciones
+
+- Versión 0.2, fase 1: un MVP útil sin aprendizaje automático. Las categorías salen de reglas, no de un modelo.
+- Las alertas de precio necesitan dos compras del mismo producto en fechas distintas.
+- Solo hay plantillas para cinco productos bancarios; los demás pasan por el lector genérico y, si no cuadran, a revisión.
+- No es asesoría tributaria ni financiera.
 
 ## Lo que falta (fase 2 en adelante)
 

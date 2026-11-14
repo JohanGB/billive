@@ -1,6 +1,8 @@
 # Factura Viva
 
-[Español](README.md) · **English**
+[Español](README.md) · **English** · [Portfolio page](https://johangb.github.io/en/projects/factura-viva.html)
+
+![tests](https://github.com/JohanGB/billive/actions/workflows/pruebas.yml/badge.svg) ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB) ![License](https://img.shields.io/badge/license-MIT-green)
 
 Turns Colombian **DIAN electronic invoices** (the ZIP files that arrive by email) and **bank
 statements** into concrete answers: where the money went, how much really left your accounts,
@@ -29,7 +31,7 @@ fingerprint, and the exact line or row it came from.
 pip install -e ".[dev]"
 python ejemplos/demo_sintetico.py   # full demo with synthetic data, opens the dashboard
 python -m factura_viva --abrir      # with your own files in data/raw/
-pytest -q                           # 93 tests
+pytest -q                           # 95 tests (93 pass in CI, 2 skipped)
 ```
 
 Password-protected PDFs: the password is requested at the prompt, never shown and **never stored**.
@@ -65,6 +67,13 @@ The catalog discovers it automatically.
 3. **Privacy** — nothing leaves the folder; account numbers are kept as last four digits only.
 4. **Better to abstain than to be wrong** — ambiguous matches are not assigned; unseen cases go to review.
 5. **Rules as data** — tax rules, categories and tolerances live in versioned YAML.
+
+## Limitations
+
+- Version 0.2, phase 1: a useful MVP without machine learning. Categories come from rules, not a model.
+- Price alerts need two purchases of the same product on different dates.
+- Templates exist for five bank products only; others go through the generic reader and, if they do not reconcile, to review.
+- Not tax or financial advice.
 
 ## Roadmap (phase 2+)
 
