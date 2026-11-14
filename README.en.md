@@ -31,7 +31,7 @@ fingerprint, and the exact line or row it came from.
 pip install -e ".[dev]"
 python ejemplos/demo_sintetico.py   # full demo with synthetic data, opens the dashboard
 python -m factura_viva --abrir      # with your own files in data/raw/
-pytest -q                           # 93 tests
+pytest -q                           # 95 tests (93 pass in CI, 2 skipped)
 ```
 
 Password-protected PDFs: the password is requested at the prompt, never shown and **never stored**.

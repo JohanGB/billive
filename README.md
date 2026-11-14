@@ -93,7 +93,7 @@ config/               reglas y tolerancias (YAML)
 data/raw/             facturas y extractos tal como llegan (privado, inmutable)
 data/procesado/       tablas y tablero (privado, se regenera)
 src/factura_viva/     facturas/ · extractos/ · pagos · categorias · renta · alertas · tablero · pipeline · cli
-tests/                90 pruebas: casos resueltos, propiedades y aceptación con datos reales
+tests/                95 pruebas (93 pasan en la CI, 2 se omiten): casos resueltos, propiedades y aceptación con datos reales
 ejemplos/             demostración con datos sintéticos
 docs/                 decisiones · supuestos · uso de IA
 models/model_cards/   ficha de la línea base de categorización
